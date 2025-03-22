@@ -26,7 +26,7 @@
 ### 1. Clone repository:
 
 ```bash
-  git clone https://github.com/KimTam05/weather-app.git
+  git clone https://github.com/KimTam05/ReactJS_Personal_project
 ```
 
 ### 2. Chuyển đến thư mục dự án 
