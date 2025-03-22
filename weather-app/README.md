@@ -54,7 +54,7 @@ Link tạo tài khoản và tạo key: https://openweathermap.org/
 ```
 ### 4. Mở trình duyệt và truy cập để xem ứng dụng.
 ```
-http://localhost:3000
+  http://localhost:3000
 ```
 
 
