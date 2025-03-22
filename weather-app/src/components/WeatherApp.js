@@ -5,7 +5,7 @@ export default function WeatherApp() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
   // Điền API key của openweather.org ở đây
-  const APIKey = 'ENTER_YOUR_API_KEY_HERE';
+  const APIKey = '56e33e46776e7bb4e2ba741e8d2f9ee6';
   
   // async: khai báo một hàm bất đồng bộ, trả về Promise
   // Promise: 1 giá trị trong hoạt động bất đồng bộ

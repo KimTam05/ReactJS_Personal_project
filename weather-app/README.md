@@ -36,7 +36,7 @@
 
 ### 3. Cài đặt các phụ phuộc
 ```bash
-  cd weather-app
+  npm install
 ```
 
 ## Sử dụng
