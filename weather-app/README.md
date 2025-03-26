@@ -56,7 +56,7 @@ Link tạo tài khoản và tạo key: [OpenWeatherMap](https://openweathermap.o
 ```
   http://localhost:3000
 ```
-
+### 5. Gõ tên quốc gia hoặc tên nước vào input và ấn Enter hoặc nút tìm kiếm để sử dụng
 
     
 ## Lời cảm ơn

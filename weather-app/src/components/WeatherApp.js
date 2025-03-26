@@ -6,7 +6,7 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
   // Điền API key của openweather.org ở đây
-  const APIKey = '56e33e46776e7bb4e2ba741e8d2f9ee6';
+  const APIKey = 'YOUR_API_KEY_HERE';
 
   // Promise: 1 giá trị trong hoạt động bất đồng bộ
   // Hoạt động bất đồng bộ: 1 chương trình hoạt động nhiều tác vụ cùng 1 lúc
