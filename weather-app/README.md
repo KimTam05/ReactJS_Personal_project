@@ -45,7 +45,7 @@
 Link tạo tài khoản và tạo key: [OpenWeatherMap](https://openweathermap.org/)
 ### 2. Thêm API key vào mã nguồn:
 ```bash
-  const APIKey = 'ENTER_YOUR_API_KEY_HERE';
+  const APIKey = 'YOUR_API_KEY_HERE';
 ```
 
 ### 3. Khởi động server
