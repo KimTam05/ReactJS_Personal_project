@@ -42,7 +42,7 @@
 ## Sử dụng
 
 ### 1. Lấy API Key từ OpenWeatherMap
-Link tạo tài khoản và tạo key: https://openweathermap.org/
+Link tạo tài khoản và tạo key: [OpenWeatherMap](https://openweathermap.org/)
 ### 2. Thêm API key vào mã nguồn:
 ```bash
   const APIKey = 'ENTER_YOUR_API_KEY_HERE';

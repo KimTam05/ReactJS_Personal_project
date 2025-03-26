@@ -4,20 +4,17 @@ import axios from 'axios'
 export default function WeatherApp() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
+  const [error, setError] = useState(null);
   // Điền API key của openweather.org ở đây
-  const APIKey = '56e33e46776e7bb4e2ba741e8d2f9ee6';
-  
-  // async: khai báo một hàm bất đồng bộ, trả về Promise
+  const APIKey = '';
+
   // Promise: 1 giá trị trong hoạt động bất đồng bộ
   // Hoạt động bất đồng bộ: 1 chương trình hoạt động nhiều tác vụ cùng 1 lúc
   const getWeather = () => {
-    // await: sử dụng để chờ kết quả của Promise của async
-    try{
-      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}`).then((response) => {setWeather(response.data)})
-    }
-    catch(error){
-      console.log("Error: ", error);
-    }
+    axios
+    .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}`)
+    .then((response) => {setWeather(response.data); setError('')})
+    .catch((error) => {setWeather(''); setError("The city or country is not found!")})
   }
 
   const chooseImages = (main) => {
@@ -94,6 +91,17 @@ export default function WeatherApp() {
             <div className='col-sm-4'></div>
           </div>
         )}
+
+        {
+          error && (
+            <div className='row'>
+              <div className='col-sm-4'></div>
+              <div className='col-sm-4 alert alert-danger'>
+                { error }
+              </div>
+              <div className='col-sm-4'></div>
+            </div>
+          )}
     </div>
   )
 }
