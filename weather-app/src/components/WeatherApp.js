@@ -6,7 +6,7 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
   // Điền API key của openweather.org ở đây
-  const APIKey = 'YOUR_API_KEY_HERE';
+  const APIKey = '56e33e46776e7bb4e2ba741e8d2f9ee6';
 
   // Promise: 1 giá trị trong hoạt động bất đồng bộ
   // Hoạt động bất đồng bộ: 1 chương trình hoạt động nhiều tác vụ cùng 1 lúc
@@ -14,7 +14,21 @@ export default function WeatherApp() {
     axios
     .get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}`)
     .then((response) => {setWeather(response.data); setError('')})
-    .catch((error) => {setWeather(''); setError("The city or country is not found!")})
+    .catch((error) => {
+      setWeather('');
+      if(error.status === 404){
+        setError("The city or country is not found!");
+      }
+      if(error.status === 401){
+        setError("You haven't add API key yet!");
+      }
+    })
+  }
+
+  const handleKeyPress = (ev) => {
+    if(ev.keyCode === 13 || ev.which === 13) {
+      getWeather();
+    }
   }
 
   const chooseImages = (main) => {
@@ -51,14 +65,18 @@ export default function WeatherApp() {
   }
   return (
     <div>
-        <div className='my-3 d-flex gap-3'>
-          <input type='text' value={city} className='form-control' placeholder='Enter your city...' onChange={(ev) => setCity(ev.target.value)}/>
-          <button className='btn btn-danger' style={{maxHeight: "60px", maxWidth: "60px"}} onClick={getWeather} ><img src='images\magnifying-glass-solid.svg' alt='search' height='80%' width="80%"/></button>
+        <div className='my-3 row'>
+          <div className='col-sm-4'></div>
+          <div className='col-sm-3'>
+            <input type='text' value={city} className='form-control' placeholder='Enter your city...' onKeyPress={handleKeyPress} onChange={(ev) => setCity(ev.target.value)}/>
+          </div>
+          <div className='col-sm-2'>
+            <button className='btn btn-danger' onClick={getWeather} >   <i class="fa-solid fa-magnifying-glass"></i>   </button>
+          </div>  
         </div>
-        <a href='https://github.com/KimTam05' className='btn btn-primary'>My GitHub</a>
         
         {weather && (
-          <div className='row'>
+          <div className='row mt-3'>
             <div className='col-sm-4'></div>
             <div className='col-sm-4 text-center border border-3 rounded border-success bg-success py-4'>
               {/* Chuyển độ °F sang °C */}
@@ -94,7 +112,7 @@ export default function WeatherApp() {
 
         {
           error && (
-            <div className='row'>
+            <div className='row mt-3'>
               <div className='col-sm-4'></div>
               <div className='col-sm-4 alert alert-danger'>
                 { error }
